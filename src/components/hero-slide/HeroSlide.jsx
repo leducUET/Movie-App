@@ -24,7 +24,7 @@ export default function HeroSlide() {
                     movieType.popular,
                     { params }
                 );
-                setMovieItems(response.results.slice(1, 4));
+                setMovieItems(response.results.slice(0, 4));
                 console.log(response);
             } catch {
                 console.log("error");
@@ -41,7 +41,7 @@ export default function HeroSlide() {
                 spaceBetween={0}
                 slidesPerView={1}
                 wrapperClass="swiper-wrapper"
-                // autoplay={{ delay: 3000 }}
+                autoplay={{ delay: 3000 }}
             >
                 {movieItems.map((item, index) => (
                     <SwiperSlide key={index}>
