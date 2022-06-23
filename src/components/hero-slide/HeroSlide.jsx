@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import tmdbApi, { category, movieType } from "../../api/tmdbApi";
 
-import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Button, { OutlineButton } from "../../components/button/Button";
 import Modal, { ModalContent } from "../../components/modal/Modal";
@@ -12,8 +11,6 @@ import apiConfig from "../../api/apiConfig";
 import { useNavigate } from "react-router-dom";
 
 export default function HeroSlide() {
-    SwiperCore.use([Autoplay]);
-
     const [movieItems, setMovieItems] = useState([]);
 
     useEffect(() => {
@@ -25,7 +22,6 @@ export default function HeroSlide() {
                     { params }
                 );
                 setMovieItems(response.results.slice(0, 4));
-                console.log(response);
             } catch {
                 console.log("error");
             }
@@ -36,7 +32,6 @@ export default function HeroSlide() {
     return (
         <div className="hero-slide">
             <Swiper
-                modules={[Autoplay]}
                 grabCursor={true}
                 spaceBetween={0}
                 slidesPerView={1}
